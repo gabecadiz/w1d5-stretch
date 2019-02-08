@@ -1,5 +1,5 @@
 function check (number){
-  var digits = number.toString().split("").map(Number)
+  var digits = number.toString().split("").map(Number);
 
   var summedDigits = 0;
 
@@ -10,29 +10,25 @@ function check (number){
     if(doubledDigits > 9){
       var eachDigit = doubledDigits.toString().split("").map(Number);
       var newDigit = 0;
-      for(x in eachDigit){
-        newDigit = newDigit + eachDigit[x]
+      for(var x in eachDigit){
+        newDigit = newDigit + eachDigit[x];
 
       }
       digits[i] = newDigit;
     }
     else{
-      digits[i] = doubledDigits
+      digits[i] = doubledDigits;
     }
   }
 
   digits.forEach(function(element){
     summedDigits += element;
-  })
-  if(summedDigits % 10 === 0){
-    console.log(number)
-    console.log("This is a valid number according to the Luhn algorithm")
-  }
-  else{
-    console.log(number)
-    console.log("Your number is invalid according to the Luhn algorithm")
-  }
+  });
+
+    return summedDigits % 10 === 0
+
 
 }
 
-check(79927398713)
+check(79927398713);
+module.exports = check;
